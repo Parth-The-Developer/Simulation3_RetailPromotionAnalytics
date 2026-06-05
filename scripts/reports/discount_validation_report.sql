@@ -1,7 +1,7 @@
 ﻿/*======================================================================
     File   : scripts/reports/discount_validation_report.sql
-    Owner  : Reports team
-    Purpose: Report: discount validation
+    Owner  : Parth (Step 5, Report #5)
+    Purpose: Report #5: discount validation
     Status : STUB - to be implemented.
 ======================================================================*/
 

@@ -1,7 +1,7 @@
 ﻿/*======================================================================
     File   : scripts/validation/check_discounts.sql
-    Owner  : Validation team
-    Purpose: Validation: discount checks
+    Owner  : Sahil (Step 4)
+    Purpose: Validation: discount checks (ER diagram with Li)
     Status : STUB - to be implemented.
 ======================================================================*/
 

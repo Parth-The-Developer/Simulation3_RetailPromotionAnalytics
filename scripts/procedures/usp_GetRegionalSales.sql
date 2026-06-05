@@ -1,6 +1,6 @@
 ﻿/*======================================================================
     File   : scripts/procedures/usp_GetRegionalSales.sql
-    Owner  : Joso
+    Owner  : Brian (Step 4)
     Purpose: Procedure: regional sales
     Status : STUB - to be implemented.
 ======================================================================*/

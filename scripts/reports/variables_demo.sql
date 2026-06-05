@@ -1,7 +1,7 @@
 ﻿/*======================================================================
     File   : scripts/reports/variables_demo.sql
-    Owner  : Reports team
-    Purpose: Demo: variables / control flow
+    Owner  : Li (Step 4)
+    Purpose: Variables / control-flow demo (ER diagram with Sahil)
     Status : STUB - to be implemented.
 ======================================================================*/
 

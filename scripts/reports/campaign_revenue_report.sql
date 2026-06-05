@@ -1,7 +1,7 @@
 ﻿/*======================================================================
     File   : scripts/reports/campaign_revenue_report.sql
-    Owner  : Reports team
-    Purpose: Report: campaign revenue
+    Owner  : Joso (Step 4, Report #1)
+    Purpose: Report #1: campaign revenue
     Status : STUB - to be implemented.
 ======================================================================*/
 

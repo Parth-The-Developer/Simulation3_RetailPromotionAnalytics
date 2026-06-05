@@ -1,6 +1,6 @@
 ﻿/*======================================================================
     File   : scripts/validation/constraint_lifecycle_demo.sql
-    Owner  : Validation team
+    Owner  : Parth (Step 5)
     Purpose: Demo: constraint lifecycle (add/drop)
     Status : STUB - to be implemented.
 ======================================================================*/

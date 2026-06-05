@@ -1,6 +1,6 @@
 ﻿/*======================================================================
     File   : scripts/functions/ufn_GetDiscountRate.sql
-    Owner  : Sahasri
+    Owner  : Sahasri (Step 4)
     Purpose: Scalar function: discount rate
     Status : STUB - to be implemented.
 ======================================================================*/

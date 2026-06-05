@@ -1,6 +1,6 @@
 ﻿/*======================================================================
     File   : scripts/procedures/usp_GetCategoryPerformance.sql
-    Owner  : Joso
+    Owner  : Brian (Step 4)
     Purpose: Procedure: category performance
     Status : STUB - to be implemented.
 ======================================================================*/

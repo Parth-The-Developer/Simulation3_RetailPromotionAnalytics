@@ -1,6 +1,6 @@
 ﻿/*======================================================================
     File   : scripts/functions/ufn_GetProductsByCategory.sql
-    Owner  : Sahasri
+    Owner  : Dhruv (Step 4)
     Purpose: Table-valued function: products by category
     Status : STUB - to be implemented.
 ======================================================================*/
