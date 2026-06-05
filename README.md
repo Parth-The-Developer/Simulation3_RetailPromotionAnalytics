@@ -1,4 +1,4 @@
-# Simulation 3 - RetailAnalytics (SQL Server)
+# Simulation - Retail Promotion Analytics (SQL Server)
 
 Team project building a `RetailAnalytics` schema sourced from `AdventureWorks2022`.
 
@@ -6,24 +6,52 @@ Team project building a `RetailAnalytics` schema sourced from `AdventureWorks202
 
 ```
 Simulation_3/
-├── deploy_all.sql            # Master script (run in SQLCMD mode)
-├── screenshots/              # Final proof screenshots (Joshua)
+├── README.md
+├── diagrams/
+│   └── retail_analytics_er_diagram.png        # ER diagram (to be added)
+├── screenshots/                                # final proof, per member
+│   ├── Parth/  Kelvin/  Hassana/  Sahasri/  Joso/
+│   └── Brian/  Dhruv/   Li/       Sahil/    Joshua/
 └── scripts/
-    ├── schema/               # create_schema.sql  (Parth)
-    ├── tables/               # 4 table scripts     (Kelvin)
-    ├── data_load/            # INSERT ... SELECT    (Hassana)
-    ├── functions/            # 4 functions          (Sahasri)
-    ├── procedures/           # 4 stored procedures  (Joso)
-    ├── reports/              # reports              (Brian, Dhruv, Li, Sahil, Parth)
-    └── validation/           # validation scripts   (team)
+    ├── schema/
+    │   └── create_schema.sql                   # Parth
+    ├── tables/                                 # Kelvin
+    │   ├── promotion_campaign.sql
+    │   ├── product_performance.sql
+    │   ├── campaign_sales.sql
+    │   └── discount_audit.sql
+    ├── data_load/                              # Hassana
+    │   └── load_analytics_data.sql
+    ├── functions/                              # Sahasri
+    │   ├── ufn_GetDiscountRate.sql
+    │   ├── ufn_GetCampaignRevenue.sql
+    │   ├── ufn_GetProductsByCategory.sql
+    │   └── ufn_GetProductsByColor.sql
+    ├── procedures/                             # Joso
+    │   ├── usp_GetCampaignRevenue.sql
+    │   ├── usp_GetTopDiscountedProducts.sql
+    │   ├── usp_GetCategoryPerformance.sql
+    │   └── usp_GetRegionalSales.sql
+    ├── reports/                                # Brian, Dhruv, Li, Sahil, Parth
+    │   ├── campaign_revenue_report.sql
+    │   ├── top_discounted_products_report.sql
+    │   ├── category_performance_report.sql
+    │   ├── regional_sales_report.sql
+    │   ├── discount_validation_report.sql
+    │   └── variables_demo.sql
+    ├── validation/                            # team
+    │   ├── check_discounts.sql
+    │   └── constraint_lifecycle_demo.sql
+    └── deployment/
+        └── deploy_all.sql
 ```
 
 ## How to deploy
 
-`deploy_all.sql` uses SQLCMD `:r` includes to run every component in dependency order.
+`scripts/deployment/deploy_all.sql` uses SQLCMD `:r` includes to run every component in dependency order.
 
-- **SSMS:** open `deploy_all.sql`, enable **Query → SQLCMD Mode**, then execute.
-- **CLI:** `sqlcmd -S <server> -d <database> -E -i deploy_all.sql`
+- **SSMS:** open `scripts/deployment/deploy_all.sql`, enable **Query → SQLCMD Mode**, then execute.
+- **CLI:** `sqlcmd -S <server> -d <database> -E -i scripts\deployment\deploy_all.sql`
 
 Each owner uncomments their `:r` line in `deploy_all.sql` once their script is committed.
 
