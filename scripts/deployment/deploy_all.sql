@@ -16,8 +16,9 @@
 PRINT '== Deploy started ==';
 GO
 
--- 1) Schema (Parth)
--- :r ..\schema\create_schema.sql
+-- 1) Schema (Parth) - DONE, creates DB + schema
+:r ..\schema\create_schema.sql
+GO
 
 -- 2) Tables (Kelvin)
 -- :r ..\tables\promotion_campaign.sql
