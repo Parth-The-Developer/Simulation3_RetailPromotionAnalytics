@@ -7,6 +7,7 @@ Team project building a `RetailAnalytics` schema sourced from `AdventureWorks202
 ```
 Simulation_3/
 ├── deploy_all.sql            # Master script (run in SQLCMD mode)
+├── screenshots/              # Final proof screenshots (Joshua)
 └── scripts/
     ├── schema/               # create_schema.sql  (Parth)
     ├── tables/               # 4 table scripts     (Kelvin)
