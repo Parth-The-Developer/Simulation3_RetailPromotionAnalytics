@@ -11,7 +11,7 @@ Simulation_3/
 │   └── retail_analytics_er_diagram.png        # ER diagram (to be added)
 ├── screenshots/                                # final proof, per member
 │   ├── Parth/  Kelvin/  Hassana/  Sahasri/  Joso/
-│   └── Brian/  Dhruv/   Li/       Sahil/    Joshua/
+│   └── Brian/  Dhruv/   Lien/       Sahil/    Joshua/
 └── scripts/
     ├── schema/
     │   └── create_schema.sql                   # Parth
@@ -32,7 +32,7 @@ Simulation_3/
     │   ├── usp_GetTopDiscountedProducts.sql
     │   ├── usp_GetCategoryPerformance.sql
     │   └── usp_GetRegionalSales.sql
-    ├── reports/                                # Brian, Dhruv, Li, Sahil, Parth
+    ├── reports/                                # Brian, Dhruv, Lien, Sahil, Parth
     │   ├── campaign_revenue_report.sql
     │   ├── top_discounted_products_report.sql
     │   ├── category_performance_report.sql
@@ -58,8 +58,8 @@ Simulation_3/
 | 4 | **Sahasri** | `ufn_GetDiscountRate.sql`, `ufn_GetCampaignRevenue.sql` + Report #2 | Step 3 |
 | 4 | **Brian** | `usp_GetCategoryPerformance.sql`, `usp_GetRegionalSales.sql` + Report #3 | Step 3 |
 | 4 | **Dhruv** | `ufn_GetProductsByCategory.sql`, `ufn_GetProductsByColor.sql` + Report #4 | Step 3 |
-| 4 | **Li** | `variables_demo.sql` + ER diagram (with Sahil) | Step 3 |
-| 4 | **Sahil** | `check_discounts.sql` + ER diagram (with Li) | Step 3 |
+| 4 | **Lien** | `variables_demo.sql` + ER diagram (with Sahil) | Step 3 |
+| 4 | **Sahil** | `check_discounts.sql` + ER diagram (with Lien) | Step 3 |
 | 5 | **Parth** | `constraint_lifecycle_demo.sql`, `discount_validation_report.sql` (Report #5), update `deploy_all.sql` | Step 3 (alongside Step 4) |
 | 6 | **Joshua** | run `deploy_all.sql` in SQLCMD mode, test all, capture screenshots, push `sample_execution.sql` | after everyone else |
 
