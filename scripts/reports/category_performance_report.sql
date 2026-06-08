@@ -1,9 +1,25 @@
-﻿/*======================================================================
-    File   : scripts/reports/category_performance_report.sql
-    Owner  : Brian (Step 4, Report #3)
-    Purpose: Report #3: category performance
-    Status : STUB - to be implemented.
-======================================================================*/
+/********************************************************************************
+-- Report Name:     Product Category Performance Report (Report #3)
+-- Purpose:         Analyzes category-level sales performance.
+-- Output:          Result set ordered by Total Revenue descending.
+********************************************************************************/
 
--- TODO: implement category_performance_report.sql
+USE AdventureWorks2022;
+GO
+
+SET NOCOUNT ON;
+
+SELECT
+    pp.ProductCategory                      AS [Product Category],
+    SUM(cs.Revenue)                         AS [Total Revenue],
+    SUM(cs.QuantitySold)                    AS [Total Units Sold],
+    AVG(cs.DiscountRate)                    AS [Average Discount Rate]
+FROM
+    RetailAnalytics.CampaignSales cs
+    INNER JOIN RetailAnalytics.ProductPerformance pp
+        ON cs.ProductID = pp.ProductID
+GROUP BY
+    pp.ProductCategory
+ORDER BY
+    [Total Revenue] DESC;
 GO
