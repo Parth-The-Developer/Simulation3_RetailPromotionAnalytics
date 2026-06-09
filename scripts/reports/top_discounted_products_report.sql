@@ -5,5 +5,11 @@
     Status : STUB - to be implemented.
 ======================================================================*/
 
--- TODO: implement top_discounted_products_report.sql
-GO
+SELECT TOP 20
+    ProductName,
+    ProductCategory,
+    DiscountRate,
+    ListPrice,
+    (ListPrice * (1 - DiscountRate)) AS DiscountedPrice
+FROM RetailAnalytics.ProductPerformance
+ORDER BY DiscountRate DESC;
