@@ -2,6 +2,16 @@
 
 Team project building a `RetailAnalytics` schema sourced from `AdventureWorks2022`.
 
+## Databases (important)
+
+| Database | Purpose |
+|---|---|
+| `AdventureWorks2022` | **Source** — read-only; Hassana copies data from here |
+| `RetailPromotionAnalytics` | **Project DB** — schema, tables, functions, reports live here |
+| `RetailAnalytics` | **Schema** (inside `RetailPromotionAnalytics`) — required by spec |
+
+Run all team scripts against **`RetailPromotionAnalytics`**, except data-load `SELECT`s which reference `AdventureWorks2022`.
+
 ## Folder structure
 
 ```
