@@ -1,0 +1,313 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="RetailAnalytics ER Diagram" id="7hAMWi_za7qq214KkqoF">
+    <mxGraphModel dx="3157" dy="1255" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rd-GgjLEUv29XTI552Ee-273" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=22;" value="AdventureWorks Retail Promotion Analytics System&#xa;Complete Entity Relationship Diagram" vertex="1">
+          <mxGeometry height="60" width="900" x="500" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-274" parent="1" style="swimlane;startSize=30;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=14;rounded=1;" value="SOURCE LAYER — AdventureWorks2022" vertex="1">
+          <mxGeometry height="300" width="1180" x="40" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-275" parent="rd-GgjLEUv29XTI552Ee-274" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;" value="Production.ProductCategory" vertex="1">
+          <mxGeometry height="100" width="220" x="30" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-276" parent="rd-GgjLEUv29XTI552Ee-275" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=1;" value="ProductCategoryID INT PK" vertex="1">
+          <mxGeometry height="24" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-277" parent="rd-GgjLEUv29XTI552Ee-275" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="Name NVARCHAR(50)" vertex="1">
+          <mxGeometry height="24" width="220" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-278" parent="rd-GgjLEUv29XTI552Ee-274" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;" value="Production.ProductSubcategory" vertex="1">
+          <mxGeometry height="124" width="240" x="290" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-279" parent="rd-GgjLEUv29XTI552Ee-278" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=1;" value="ProductSubcategoryID INT PK" vertex="1">
+          <mxGeometry height="24" width="240" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-280" parent="rd-GgjLEUv29XTI552Ee-278" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;" value="ProductCategoryID INT FK" vertex="1">
+          <mxGeometry height="24" width="240" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-281" parent="rd-GgjLEUv29XTI552Ee-278" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="Name NVARCHAR(50)" vertex="1">
+          <mxGeometry height="24" width="240" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-282" parent="rd-GgjLEUv29XTI552Ee-274" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;" value="Production.Product" vertex="1">
+          <mxGeometry height="172" width="260" x="570" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-283" parent="rd-GgjLEUv29XTI552Ee-282" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=1;" value="ProductID INT PK" vertex="1">
+          <mxGeometry height="24" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-284" parent="rd-GgjLEUv29XTI552Ee-282" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;" value="ProductSubcategoryID INT FK" vertex="1">
+          <mxGeometry height="24" width="260" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-285" parent="rd-GgjLEUv29XTI552Ee-282" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="Name, ProductNumber, Color" vertex="1">
+          <mxGeometry height="24" width="260" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-286" parent="rd-GgjLEUv29XTI552Ee-282" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="StandardCost, ListPrice MONEY" vertex="1">
+          <mxGeometry height="24" width="260" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-287" parent="rd-GgjLEUv29XTI552Ee-282" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="SafetyStockLevel, ReorderPoint" vertex="1">
+          <mxGeometry height="24" width="260" y="122" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-288" parent="rd-GgjLEUv29XTI552Ee-274" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;" value="Sales.SalesOrderHeader" vertex="1">
+          <mxGeometry height="100" width="240" x="30" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-289" parent="rd-GgjLEUv29XTI552Ee-288" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=1;" value="SalesOrderID INT PK" vertex="1">
+          <mxGeometry height="24" width="240" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-290" parent="rd-GgjLEUv29XTI552Ee-288" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="OrderDate DATETIME" vertex="1">
+          <mxGeometry height="24" width="240" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-291" parent="rd-GgjLEUv29XTI552Ee-288" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;" value="TerritoryID INT FK" vertex="1">
+          <mxGeometry height="24" width="240" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-292" parent="rd-GgjLEUv29XTI552Ee-274" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;" value="Sales.SalesOrderDetail" vertex="1">
+          <mxGeometry height="124" width="260" x="310" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-293" parent="rd-GgjLEUv29XTI552Ee-292" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;" value="SalesOrderID INT FK" vertex="1">
+          <mxGeometry height="24" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-294" parent="rd-GgjLEUv29XTI552Ee-292" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;" value="ProductID INT FK" vertex="1">
+          <mxGeometry height="24" width="260" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-295" parent="rd-GgjLEUv29XTI552Ee-292" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="OrderQty INT" vertex="1">
+          <mxGeometry height="24" width="260" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-296" parent="rd-GgjLEUv29XTI552Ee-292" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="UnitPrice, UnitPriceDiscount MONEY" vertex="1">
+          <mxGeometry height="24" width="260" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-297" parent="rd-GgjLEUv29XTI552Ee-274" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;" value="Sales.SalesTerritory" vertex="1">
+          <mxGeometry height="100" width="240" x="610" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-298" parent="rd-GgjLEUv29XTI552Ee-297" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=1;" value="TerritoryID INT PK" vertex="1">
+          <mxGeometry height="24" width="240" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-299" parent="rd-GgjLEUv29XTI552Ee-297" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="Name NVARCHAR(50) → Region" vertex="1">
+          <mxGeometry height="24" width="240" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-300" edge="1" parent="rd-GgjLEUv29XTI552Ee-274" source="rd-GgjLEUv29XTI552Ee-275" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeColor=#666666;" target="rd-GgjLEUv29XTI552Ee-278">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-301" edge="1" parent="rd-GgjLEUv29XTI552Ee-274" source="rd-GgjLEUv29XTI552Ee-278" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeColor=#666666;" target="rd-GgjLEUv29XTI552Ee-282">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-302" edge="1" parent="rd-GgjLEUv29XTI552Ee-274" source="rd-GgjLEUv29XTI552Ee-288" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeColor=#666666;" target="rd-GgjLEUv29XTI552Ee-292">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-303" edge="1" parent="rd-GgjLEUv29XTI552Ee-274" source="rd-GgjLEUv29XTI552Ee-297" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeColor=#666666;dashed=1;" target="rd-GgjLEUv29XTI552Ee-288">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-304" edge="1" parent="rd-GgjLEUv29XTI552Ee-274" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9673a6;strokeWidth=2;dashed=1;endArrow=block;endFill=1;fontStyle=1;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.133;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="rd-GgjLEUv29XTI552Ee-315" value="INSERT…SELECT&#xa;(set-based load)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="320" />
+              <mxPoint x="360" y="320" />
+              <mxPoint x="360" y="678" />
+              <mxPoint x="70" y="678" />
+            </Array>
+            <mxPoint x="590" y="200.00000000000023" as="sourcePoint" />
+            <mxPoint x="70" y="678" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-305" parent="1" style="swimlane;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;rounded=1;" value="ANALYTICS LAYER — RetailAnalytics Schema" vertex="1">
+          <mxGeometry height="780" width="1180" x="40" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-306" parent="rd-GgjLEUv29XTI552Ee-305" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="RetailAnalytics.PromotionCampaign" vertex="1">
+          <mxGeometry height="244" width="300" x="30" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-307" parent="rd-GgjLEUv29XTI552Ee-306" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=1;" value="CampaignID INT IDENTITY  «PK»" vertex="1">
+          <mxGeometry height="24" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-308" parent="rd-GgjLEUv29XTI552Ee-306" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="CampaignCode NVARCHAR(20)  «UQ»" vertex="1">
+          <mxGeometry height="24" width="300" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-309" parent="rd-GgjLEUv29XTI552Ee-306" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="CampaignName NVARCHAR(100)" vertex="1">
+          <mxGeometry height="24" width="300" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-310" parent="rd-GgjLEUv29XTI552Ee-306" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="CampaignType NVARCHAR(50)" vertex="1">
+          <mxGeometry height="24" width="300" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-311" parent="rd-GgjLEUv29XTI552Ee-306" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="StartDate DATE, EndDate DATE" vertex="1">
+          <mxGeometry height="24" width="300" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-312" parent="rd-GgjLEUv29XTI552Ee-306" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="DiscountRate DECIMAL(4,3)  «CK 0–0.50»" vertex="1">
+          <mxGeometry height="24" width="300" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-313" parent="rd-GgjLEUv29XTI552Ee-306" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="IsActive BIT  «DF»" vertex="1">
+          <mxGeometry height="24" width="300" y="172" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-314" parent="rd-GgjLEUv29XTI552Ee-306" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="CreatedAt DATETIME2  «DF»" vertex="1">
+          <mxGeometry height="24" width="300" y="196" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-315" parent="rd-GgjLEUv29XTI552Ee-305" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;fillColor=#d5e8d4;strokeColor=#82b366;" value="RetailAnalytics.ProductPerformance" vertex="1">
+          <mxGeometry height="244" width="300" x="30" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-316" parent="rd-GgjLEUv29XTI552Ee-315" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=1;" value="ProductID INT  «PK»" vertex="1">
+          <mxGeometry height="24" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-317" parent="rd-GgjLEUv29XTI552Ee-315" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="ProductName NVARCHAR(100)" vertex="1">
+          <mxGeometry height="24" width="300" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-318" parent="rd-GgjLEUv29XTI552Ee-315" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="ProductNumber NVARCHAR(25)" vertex="1">
+          <mxGeometry height="24" width="300" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-319" parent="rd-GgjLEUv29XTI552Ee-315" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="ProductCategory NVARCHAR(100)" vertex="1">
+          <mxGeometry height="24" width="300" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-320" parent="rd-GgjLEUv29XTI552Ee-315" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="Color NVARCHAR(15)" vertex="1">
+          <mxGeometry height="24" width="300" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-321" parent="rd-GgjLEUv29XTI552Ee-315" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="StandardCost, ListPrice MONEY  «CK»" vertex="1">
+          <mxGeometry height="24" width="300" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-322" parent="rd-GgjLEUv29XTI552Ee-315" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="SafetyStockLevel, ReorderPoint SMALLINT" vertex="1">
+          <mxGeometry height="24" width="300" y="172" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-323" parent="rd-GgjLEUv29XTI552Ee-315" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="CreatedAt DATETIME2  «DF»" vertex="1">
+          <mxGeometry height="24" width="300" y="196" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-324" parent="rd-GgjLEUv29XTI552Ee-305" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;fillColor=#fff2cc;strokeColor=#d6b656;" value="RetailAnalytics.CampaignSales" vertex="1">
+          <mxGeometry height="316" width="330" x="430" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-325" parent="rd-GgjLEUv29XTI552Ee-324" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=1;" value="CampaignSalesID INT IDENTITY  «PK»" vertex="1">
+          <mxGeometry height="24" width="330" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-326" parent="rd-GgjLEUv29XTI552Ee-324" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;" value="CampaignID INT  «FK → PromotionCampaign»" vertex="1">
+          <mxGeometry height="24" width="330" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-327" parent="rd-GgjLEUv29XTI552Ee-324" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;" value="ProductID INT  «FK → ProductPerformance»" vertex="1">
+          <mxGeometry height="24" width="330" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-328" parent="rd-GgjLEUv29XTI552Ee-324" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="SalesOrderID INT" vertex="1">
+          <mxGeometry height="24" width="330" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-329" parent="rd-GgjLEUv29XTI552Ee-324" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="OrderDate DATETIME" vertex="1">
+          <mxGeometry height="24" width="330" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-330" parent="rd-GgjLEUv29XTI552Ee-324" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="Region NVARCHAR(50)" vertex="1">
+          <mxGeometry height="24" width="330" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-331" parent="rd-GgjLEUv29XTI552Ee-324" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="QuantitySold INT  «CK &gt; 0»" vertex="1">
+          <mxGeometry height="24" width="330" y="172" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-332" parent="rd-GgjLEUv29XTI552Ee-324" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="UnitPrice MONEY  «CK &gt; 0»" vertex="1">
+          <mxGeometry height="24" width="330" y="196" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-333" parent="rd-GgjLEUv29XTI552Ee-324" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="DiscountRate DECIMAL(4,3)  «CK 0–0.50»" vertex="1">
+          <mxGeometry height="24" width="330" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-334" parent="rd-GgjLEUv29XTI552Ee-324" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="Revenue MONEY  «CK ≥ 0»" vertex="1">
+          <mxGeometry height="24" width="330" y="244" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-335" parent="rd-GgjLEUv29XTI552Ee-324" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="CreatedAt DATETIME2  «DF»" vertex="1">
+          <mxGeometry height="24" width="330" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-336" parent="rd-GgjLEUv29XTI552Ee-305" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;fillColor=#f8cecc;strokeColor=#b85450;" value="RetailAnalytics.DiscountAudit" vertex="1">
+          <mxGeometry height="196" width="330" x="430" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-337" parent="rd-GgjLEUv29XTI552Ee-336" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=1;" value="AuditID INT IDENTITY  «PK»" vertex="1">
+          <mxGeometry height="24" width="330" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-338" parent="rd-GgjLEUv29XTI552Ee-336" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;" value="CampaignID INT  «FK → PromotionCampaign»" vertex="1">
+          <mxGeometry height="24" width="330" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-339" parent="rd-GgjLEUv29XTI552Ee-336" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;" value="ProductID INT  «FK → ProductPerformance»" vertex="1">
+          <mxGeometry height="24" width="330" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-340" parent="rd-GgjLEUv29XTI552Ee-336" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="DiscountRate DECIMAL(4,3)  «CK 0–0.50»" vertex="1">
+          <mxGeometry height="24" width="330" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-341" parent="rd-GgjLEUv29XTI552Ee-336" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="ValidationStatus NVARCHAR(20)" vertex="1">
+          <mxGeometry height="24" width="330" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-342" parent="rd-GgjLEUv29XTI552Ee-336" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="ValidationMessage NVARCHAR(200)" vertex="1">
+          <mxGeometry height="24" width="330" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-343" parent="rd-GgjLEUv29XTI552Ee-336" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="AuditDate DATETIME2  «DF»" vertex="1">
+          <mxGeometry height="24" width="330" y="172" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-344" edge="1" parent="rd-GgjLEUv29XTI552Ee-305" source="rd-GgjLEUv29XTI552Ee-306" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#6c8ebf;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="rd-GgjLEUv29XTI552Ee-324" value="1 : N">
+          <mxGeometry relative="1" x="-0.2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-345" edge="1" parent="rd-GgjLEUv29XTI552Ee-305" source="rd-GgjLEUv29XTI552Ee-315" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#82b366;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="rd-GgjLEUv29XTI552Ee-324" value="1 : N">
+          <mxGeometry relative="1" x="-0.2" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="445" />
+              <mxPoint x="390" y="407" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-346" edge="1" parent="rd-GgjLEUv29XTI552Ee-305" source="rd-GgjLEUv29XTI552Ee-306" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#6c8ebf;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="rd-GgjLEUv29XTI552Ee-336" value="1 : N">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-30" y="304" />
+              <mxPoint x="-30" y="630" />
+              <mxPoint x="390" y="630" />
+              <mxPoint x="390" y="609" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-347" edge="1" parent="rd-GgjLEUv29XTI552Ee-305" source="rd-GgjLEUv29XTI552Ee-315" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#82b366;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="rd-GgjLEUv29XTI552Ee-336" value="1 : N">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="482" />
+              <mxPoint x="390" y="707" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-348" edge="1" parent="rd-GgjLEUv29XTI552Ee-305" source="rd-GgjLEUv29XTI552Ee-324" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#b85450;strokeWidth=1;dashed=1;endArrow=open;endFill=0;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="rd-GgjLEUv29XTI552Ee-336" value="Derived audit records">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-349" edge="1" parent="1" source="rd-GgjLEUv29XTI552Ee-292" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9673a6;strokeWidth=2;dashed=1;endArrow=block;endFill=1;fontStyle=1;fontSize=11;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="rd-GgjLEUv29XTI552Ee-324" value="INSERT…SELECT&#xa;(Sales + Campaign match)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="302" />
+              <mxPoint x="1080" y="302" />
+              <mxPoint x="1080" y="420" />
+              <mxPoint x="635" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-350" edge="1" parent="1" source="rd-GgjLEUv29XTI552Ee-297" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9673a6;strokeWidth=1;dashed=1;endArrow=open;endFill=0;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.45;entryDx=0;entryDy=0;" target="rd-GgjLEUv29XTI552Ee-324" value="Region mapping">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="420" />
+              <mxPoint x="820" y="420" />
+              <mxPoint x="820" y="772" />
+              <mxPoint x="800" y="772" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-351" parent="1" style="swimlane;startSize=30;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=14;rounded=1;" value="BUSINESS LOGIC LAYER" vertex="1">
+          <mxGeometry height="620" width="380" x="1260" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-352" parent="rd-GgjLEUv29XTI552Ee-351" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=12;" value="Stored Procedures&#xa;─────────────────────────&#xa;• usp_GetCampaignRevenue&#xa;• usp_GetTopDiscountedProducts&#xa;• usp_GetCategoryPerformance&#xa;• usp_GetRegionalSales" vertex="1">
+          <mxGeometry height="130" width="340" x="20" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-353" parent="rd-GgjLEUv29XTI552Ee-351" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=12;" value="Functions&#xa;─────────────────────────&#xa;• ufn_GetDiscountRate (Scalar)&#xa;• ufn_GetCampaignRevenue (Scalar)&#xa;• ufn_GetProductsByCategory (TVF)&#xa;• ufn_GetProductsByColor (TVF)" vertex="1">
+          <mxGeometry height="130" width="340" x="20" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-354" parent="rd-GgjLEUv29XTI552Ee-351" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=12;" value="Business Reports (5)&#xa;─────────────────────────&#xa;1. Campaign Revenue Report&#xa;2. Top Discounted Products Report&#xa;3. Category Performance Report&#xa;4. Regional Sales Report&#xa;5. Discount Validation Report" vertex="1">
+          <mxGeometry height="130" width="340" x="20" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-355" parent="rd-GgjLEUv29XTI552Ee-351" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=12;" value="Validation &amp; Deployment&#xa;─────────────────────────&#xa;• check_discounts.sql&#xa;• validate_deployment.sql&#xa;• constraint_lifecycle_demo.sql&#xa;• deploy_all.sql (SQLCMD)" vertex="1">
+          <mxGeometry height="100" width="340" x="20" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-356" parent="1" style="swimlane;startSize=30;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=13;rounded=1;" value="REPORTING LAYER — Uses Analytics Tables + Business Logic" vertex="1">
+          <mxGeometry height="120" width="390" x="1250" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-357" parent="rd-GgjLEUv29XTI552Ee-356" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;" value="Reports query CampaignSales, ProductPerformance,&#xa;PromotionCampaign, and DiscountAudit" vertex="1">
+          <mxGeometry height="60" width="340" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-358" edge="1" parent="1" source="rd-GgjLEUv29XTI552Ee-305" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d79b00;dashed=1;endArrow=open;endFill=0;fontSize=11;exitX=1;exitY=0.15;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" target="rd-GgjLEUv29XTI552Ee-351" value="queries">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rd-GgjLEUv29XTI552Ee-359" edge="1" parent="1" source="rd-GgjLEUv29XTI552Ee-306" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="rd-GgjLEUv29XTI552Ee-291" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
