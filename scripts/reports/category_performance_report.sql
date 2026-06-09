@@ -1,10 +1,12 @@
 /********************************************************************************
--- Report Name:     Product Category Performance Report (Report #3)
--- Purpose:         Analyzes category-level sales performance.
--- Output:          Result set ordered by Total Revenue descending.
+    Report : Report #3 - Product Category Performance
+    Owner  : Brian (Step 4)
+    Purpose: Analyzes category-level sales performance.
+    Database: RetailPromotionAnalytics (Kelvin tables + Hassana data)
+    Source data originally loaded from AdventureWorks2022.
 ********************************************************************************/
 
-USE AdventureWorks2022;
+USE RetailPromotionAnalytics;
 GO
 
 SET NOCOUNT ON;
@@ -22,4 +24,7 @@ GROUP BY
     pp.ProductCategory
 ORDER BY
     [Total Revenue] DESC;
+GO
+
+PRINT 'Report #3 (Category Performance) executed successfully.';
 GO
