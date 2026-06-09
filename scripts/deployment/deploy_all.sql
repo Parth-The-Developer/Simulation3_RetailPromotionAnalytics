@@ -58,7 +58,8 @@ GO
 -- :r ..\reports\variables_demo.sql
 
 -- 7) Validation (team)
--- :r ..\validation\check_discounts.sql
+:r ..\validation\check_discounts.sql
+GO
 -- :r ..\validation\constraint_lifecycle_demo.sql
 
 PRINT '== Deploy finished ==';

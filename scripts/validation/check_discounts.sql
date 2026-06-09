@@ -1,16 +1,16 @@
-/*
-    check_discounts.sql
-    Author  : Sahil
-    Purpose : Validate discount rates, revenue calculations, and audit integrity
-              across the RetailAnalytics schema.
-    Database: AdventureWorks2022
+/********************************************************************************
+    File   : scripts/validation/check_discounts.sql
+    Owner  : Sahil (Step 4)
+    Purpose: Validate discount rates, revenue calculations, and audit integrity
+             across Kelvin's tables and Hassana's loaded data.
 
-    Screenshots:
-    1. Open diagrams/retail_analytics_er_diagram.drawio in draw.io
-    2. Run this script in SSMS after deployment and capture the output
-*/
+    Database: RetailPromotionAnalytics  (same as Parth schema + Kelvin + Hassana)
+    Prereq  : Run deploy_all.sql Steps 1-3 before this script.
 
-USE AdventureWorks2022;
+    ER diagram (with Li): diagrams/Simulation-3.drawio
+********************************************************************************/
+
+USE RetailPromotionAnalytics;
 GO
 
 SET NOCOUNT ON;
@@ -18,21 +18,17 @@ GO
 
 PRINT '=================================================================';
 PRINT 'Discount Validation Script - Sahil';
-PRINT 'Schema : RetailAnalytics';
+PRINT 'Database: RetailPromotionAnalytics';
+PRINT 'Schema  : RetailAnalytics';
 PRINT 'Run Date: ' + CONVERT(VARCHAR(30), SYSDATETIME(), 120);
 PRINT '=================================================================';
 GO
 
 /* -------------------------------------------------------------------------
-   Required T-SQL variables for reusable discount analysis
+   Required T-SQL variables (spec: reusable discount analysis)
    ------------------------------------------------------------------------- */
 DECLARE @MinimumDiscountRate DECIMAL(4, 3) = 0.000;
 DECLARE @MaximumDiscountRate DECIMAL(4, 3) = 0.500;
-DECLARE @InvalidCampaignCount INT = 0;
-DECLARE @InvalidSalesCount INT = 0;
-DECLARE @InvalidRevenueCount INT = 0;
-DECLARE @InvalidAuditCount INT = 0;
-DECLARE @TotalIssues INT = 0;
 
 SET @MinimumDiscountRate = 0.000;
 SET @MaximumDiscountRate = 0.500;
@@ -55,7 +51,7 @@ END;
 GO
 
 /* -------------------------------------------------------------------------
-   Step 1: Confirm required tables exist
+   Step 1: Confirm required tables exist (Kelvin)
    ------------------------------------------------------------------------- */
 PRINT '';
 PRINT 'Step 1: Checking required RetailAnalytics tables...';
@@ -77,10 +73,9 @@ WHERE OBJECT_ID(required.ObjectName) IS NULL;
 IF @MissingTableCount > 0
 BEGIN
     PRINT 'Validation stopped. One or more RetailAnalytics tables are missing.';
-    PRINT 'Execute deploy_all.sql before running this script.';
+    PRINT 'Execute deploy_all.sql (Steps 1-2) before running this script.';
 
-    SELECT
-        required.ObjectName AS [Missing Table]
+    SELECT required.ObjectName AS [Missing Table]
     FROM
     (
         VALUES
@@ -92,18 +87,44 @@ BEGIN
     WHERE OBJECT_ID(required.ObjectName) IS NULL;
 
     RETURN;
-END
-ELSE
-BEGIN
-    PRINT 'All required RetailAnalytics tables exist.';
 END;
+
+PRINT 'All required RetailAnalytics tables exist.';
 GO
 
 /* -------------------------------------------------------------------------
-   Step 2: Validate promotion campaign discount rates
+   Step 2: Confirm data loaded (Hassana)
    ------------------------------------------------------------------------- */
 PRINT '';
-PRINT 'Step 2: Validating PromotionCampaign discount rates...';
+PRINT 'Step 2: Checking data load row counts...';
+GO
+
+DECLARE @CampaignRows INT, @ProductRows INT, @SalesRows INT, @AuditRows INT;
+
+SELECT @CampaignRows = COUNT(*) FROM RetailAnalytics.PromotionCampaign;
+SELECT @ProductRows  = COUNT(*) FROM RetailAnalytics.ProductPerformance;
+SELECT @SalesRows    = COUNT(*) FROM RetailAnalytics.CampaignSales;
+SELECT @AuditRows    = COUNT(*) FROM RetailAnalytics.DiscountAudit;
+
+SELECT
+    N'PromotionCampaign'  AS [Table Name], @CampaignRows AS [Row Count]
+UNION ALL SELECT N'ProductPerformance', @ProductRows
+UNION ALL SELECT N'CampaignSales',      @SalesRows
+UNION ALL SELECT N'DiscountAudit',      @AuditRows;
+
+IF @CampaignRows = 0 OR @ProductRows = 0 OR @SalesRows = 0 OR @AuditRows = 0
+BEGIN
+    PRINT 'Warning: One or more tables are empty. Run Hassana load_analytics_data.sql first.';
+END
+ELSE
+    PRINT 'Data load check passed - all tables contain data.';
+GO
+
+/* -------------------------------------------------------------------------
+   Step 3: Validate PromotionCampaign discount rates (Kelvin constraints)
+   ------------------------------------------------------------------------- */
+PRINT '';
+PRINT 'Step 3: Validating PromotionCampaign discount rates...';
 GO
 
 DECLARE @MinimumDiscountRate DECIMAL(4, 3) = 0.000;
@@ -118,9 +139,7 @@ WHERE pc.DiscountRate < @MinimumDiscountRate
    OR pc.CampaignCode = N'';
 
 IF @InvalidCampaignCount = 0
-BEGIN
     PRINT 'PromotionCampaign discount validation passed.';
-END
 ELSE
 BEGIN
     PRINT CONCAT('PromotionCampaign discount validation failed. Issues found: ', @InvalidCampaignCount);
@@ -139,10 +158,10 @@ END;
 GO
 
 /* -------------------------------------------------------------------------
-   Step 3: Validate campaign sales discount rates
+   Step 4: Validate CampaignSales business rules (Kelvin CHECK constraints)
    ------------------------------------------------------------------------- */
 PRINT '';
-PRINT 'Step 3: Validating CampaignSales discount rates...';
+PRINT 'Step 4: Validating CampaignSales discount rates...';
 GO
 
 DECLARE @MinimumDiscountRate DECIMAL(4, 3) = 0.000;
@@ -158,20 +177,18 @@ WHERE cs.DiscountRate < @MinimumDiscountRate
    OR cs.Revenue < 0;
 
 IF @InvalidSalesCount = 0
-BEGIN
     PRINT 'CampaignSales discount validation passed.';
-END
 ELSE
 BEGIN
     PRINT CONCAT('CampaignSales discount validation failed. Issues found: ', @InvalidSalesCount);
 
     SELECT TOP (20)
         cs.CampaignSalesID AS [Campaign Sales ID],
-        cs.SalesOrderID AS [Sales Order ID],
-        cs.DiscountRate AS [Discount Rate],
-        cs.QuantitySold AS [Quantity Sold],
-        cs.UnitPrice AS [Unit Price],
-        cs.Revenue AS [Revenue],
+        cs.SalesOrderID    AS [Sales Order ID],
+        cs.DiscountRate    AS [Discount Rate],
+        cs.QuantitySold    AS [Quantity Sold],
+        cs.UnitPrice       AS [Unit Price],
+        cs.Revenue         AS [Revenue],
         N'Invalid sales discount or related business rule' AS [Validation Message]
     FROM RetailAnalytics.CampaignSales AS cs
     WHERE cs.DiscountRate < @MinimumDiscountRate
@@ -184,11 +201,11 @@ END;
 GO
 
 /* -------------------------------------------------------------------------
-   Step 4: Validate revenue calculation formula
+   Step 5: Validate revenue formula (Hassana load + Sahasri function)
    Revenue = QuantitySold x UnitPrice x (1 - DiscountRate)
    ------------------------------------------------------------------------- */
 PRINT '';
-PRINT 'Step 4: Validating revenue calculations...';
+PRINT 'Step 5: Validating revenue calculations...';
 GO
 
 DECLARE @InvalidRevenueCount INT = 0;
@@ -197,39 +214,40 @@ SELECT @InvalidRevenueCount = COUNT(*)
 FROM RetailAnalytics.CampaignSales AS cs
 WHERE ABS(
         cs.Revenue -
-        CAST(cs.QuantitySold * cs.UnitPrice * (1.0 - cs.DiscountRate) AS MONEY)
-      ) > 0.01;
+        RetailAnalytics.ufn_GetCampaignRevenue(cs.QuantitySold, cs.UnitPrice, cs.DiscountRate)
+      ) > 0.01
+   OR RetailAnalytics.ufn_GetCampaignRevenue(cs.QuantitySold, cs.UnitPrice, cs.DiscountRate) IS NULL;
 
 IF @InvalidRevenueCount = 0
-BEGIN
     PRINT 'Revenue calculation validation passed.';
-END
 ELSE
 BEGIN
     PRINT CONCAT('Revenue calculation validation failed. Issues found: ', @InvalidRevenueCount);
 
     SELECT TOP (20)
         cs.CampaignSalesID AS [Campaign Sales ID],
-        cs.QuantitySold AS [Quantity Sold],
-        cs.UnitPrice AS [Unit Price],
-        cs.DiscountRate AS [Discount Rate],
-        cs.Revenue AS [Stored Revenue],
-        CAST(cs.QuantitySold * cs.UnitPrice * (1.0 - cs.DiscountRate) AS MONEY) AS [Expected Revenue],
+        cs.QuantitySold    AS [Quantity Sold],
+        cs.UnitPrice       AS [Unit Price],
+        cs.DiscountRate    AS [Discount Rate],
+        cs.Revenue         AS [Stored Revenue],
+        RetailAnalytics.ufn_GetCampaignRevenue(
+            cs.QuantitySold, cs.UnitPrice, cs.DiscountRate) AS [Expected Revenue],
         N'Revenue does not match required formula' AS [Validation Message]
     FROM RetailAnalytics.CampaignSales AS cs
     WHERE ABS(
             cs.Revenue -
-            CAST(cs.QuantitySold * cs.UnitPrice * (1.0 - cs.DiscountRate) AS MONEY)
+            RetailAnalytics.ufn_GetCampaignRevenue(cs.QuantitySold, cs.UnitPrice, cs.DiscountRate)
           ) > 0.01
+       OR RetailAnalytics.ufn_GetCampaignRevenue(cs.QuantitySold, cs.UnitPrice, cs.DiscountRate) IS NULL
     ORDER BY cs.CampaignSalesID;
 END;
 GO
 
 /* -------------------------------------------------------------------------
-   Step 5: Validate DiscountAudit records
+   Step 6: Validate DiscountAudit (Hassana uses VALID / INVALID)
    ------------------------------------------------------------------------- */
 PRINT '';
-PRINT 'Step 5: Validating DiscountAudit records...';
+PRINT 'Step 6: Validating DiscountAudit records...';
 GO
 
 DECLARE @InvalidAuditCount INT = 0;
@@ -238,36 +256,60 @@ SELECT @InvalidAuditCount = COUNT(*)
 FROM RetailAnalytics.DiscountAudit AS da
 WHERE da.DiscountRate < 0
    OR da.DiscountRate > 0.50
-   OR da.ValidationStatus NOT IN (N'Valid', N'Invalid')
+   OR da.ValidationStatus NOT IN (N'VALID', N'INVALID')
    OR da.ValidationMessage = N'';
 
 IF @InvalidAuditCount = 0
-BEGIN
     PRINT 'DiscountAudit validation passed.';
-END
 ELSE
 BEGIN
     PRINT CONCAT('DiscountAudit validation failed. Issues found: ', @InvalidAuditCount);
 
     SELECT TOP (20)
-        da.AuditID AS [Audit ID],
-        da.DiscountRate AS [Discount Rate],
-        da.ValidationStatus AS [Validation Status],
-        da.ValidationMessage AS [Validation Message]
+        da.AuditID            AS [Audit ID],
+        da.DiscountRate       AS [Discount Rate],
+        da.ValidationStatus   AS [Validation Status],
+        da.ValidationMessage  AS [Validation Message]
     FROM RetailAnalytics.DiscountAudit AS da
     WHERE da.DiscountRate < 0
        OR da.DiscountRate > 0.50
-       OR da.ValidationStatus NOT IN (N'Valid', N'Invalid')
+       OR da.ValidationStatus NOT IN (N'VALID', N'INVALID')
        OR da.ValidationMessage = N''
     ORDER BY da.AuditID;
 END;
 GO
 
 /* -------------------------------------------------------------------------
-   Step 6: Discount summary for screenshot evidence
+   Step 7: FK integrity (Kelvin foreign keys)
    ------------------------------------------------------------------------- */
 PRINT '';
-PRINT 'Step 6: Discount validation summary...';
+PRINT 'Step 7: Validating foreign key integrity...';
+GO
+
+DECLARE @OrphanSales INT = 0;
+DECLARE @OrphanAudit INT = 0;
+
+SELECT @OrphanSales = COUNT(*)
+FROM RetailAnalytics.CampaignSales cs
+WHERE NOT EXISTS (SELECT 1 FROM RetailAnalytics.PromotionCampaign pc WHERE pc.CampaignID = cs.CampaignID)
+   OR NOT EXISTS (SELECT 1 FROM RetailAnalytics.ProductPerformance pp WHERE pp.ProductID = cs.ProductID);
+
+SELECT @OrphanAudit = COUNT(*)
+FROM RetailAnalytics.DiscountAudit da
+WHERE NOT EXISTS (SELECT 1 FROM RetailAnalytics.PromotionCampaign pc WHERE pc.CampaignID = da.CampaignID)
+   OR NOT EXISTS (SELECT 1 FROM RetailAnalytics.ProductPerformance pp WHERE pp.ProductID = da.ProductID);
+
+IF @OrphanSales = 0 AND @OrphanAudit = 0
+    PRINT 'Foreign key integrity validation passed.';
+ELSE
+    PRINT CONCAT('FK issues - CampaignSales orphans: ', @OrphanSales, ', DiscountAudit orphans: ', @OrphanAudit);
+GO
+
+/* -------------------------------------------------------------------------
+   Step 8: Discount summary (screenshot evidence)
+   ------------------------------------------------------------------------- */
+PRINT '';
+PRINT 'Step 8: Discount validation summary...';
 GO
 
 SELECT
@@ -297,8 +339,8 @@ UNION ALL
 SELECT
     N'DiscountAudit',
     COUNT(*),
-    SUM(CASE WHEN da.ValidationStatus = N'Valid' THEN 1 ELSE 0 END),
-    SUM(CASE WHEN da.ValidationStatus = N'Invalid' THEN 1 ELSE 0 END),
+    SUM(CASE WHEN da.ValidationStatus = N'VALID' THEN 1 ELSE 0 END),
+    SUM(CASE WHEN da.ValidationStatus = N'INVALID' THEN 1 ELSE 0 END),
     MIN(da.DiscountRate),
     MAX(da.DiscountRate),
     AVG(da.DiscountRate)
@@ -307,30 +349,29 @@ GO
 
 SELECT
     da.ValidationStatus AS [Validation Status],
-    COUNT(*) AS [Record Count]
+    COUNT(*)            AS [Record Count]
 FROM RetailAnalytics.DiscountAudit AS da
 GROUP BY da.ValidationStatus
 ORDER BY da.ValidationStatus;
 GO
 
 /* -------------------------------------------------------------------------
-   Step 7: Confirm discount-related check constraints are enabled
+   Step 9: Confirm discount CHECK constraints are enabled (Kelvin)
    ------------------------------------------------------------------------- */
 PRINT '';
-PRINT 'Step 7: Checking discount check constraints...';
+PRINT 'Step 9: Checking discount check constraints...';
 GO
 
 SELECT
     SCHEMA_NAME(t.schema_id) AS [Schema Name],
-    t.name AS [Table Name],
-    cc.name AS [Constraint Name],
-    cc.is_disabled AS [Is Disabled],
-    cc.is_not_trusted AS [Is Not Trusted]
+    t.name                   AS [Table Name],
+    cc.name                  AS [Constraint Name],
+    cc.is_disabled           AS [Is Disabled],
+    cc.is_not_trusted        AS [Is Not Trusted]
 FROM sys.check_constraints AS cc
-INNER JOIN sys.tables AS t
-    ON cc.parent_object_id = t.object_id
+INNER JOIN sys.tables AS t ON cc.parent_object_id = t.object_id
 WHERE SCHEMA_NAME(t.schema_id) = N'RetailAnalytics'
-  AND cc.name LIKE N'%DiscountRate%'
+  AND cc.name LIKE N'%Discount%'
 ORDER BY t.name, cc.name;
 GO
 
@@ -338,10 +379,9 @@ DECLARE @DisabledConstraintCount INT;
 
 SELECT @DisabledConstraintCount = COUNT(*)
 FROM sys.check_constraints AS cc
-INNER JOIN sys.tables AS t
-    ON cc.parent_object_id = t.object_id
+INNER JOIN sys.tables AS t ON cc.parent_object_id = t.object_id
 WHERE SCHEMA_NAME(t.schema_id) = N'RetailAnalytics'
-  AND cc.name LIKE N'%DiscountRate%'
+  AND cc.name LIKE N'%Discount%'
   AND cc.is_disabled = 1;
 
 IF @DisabledConstraintCount = 0
