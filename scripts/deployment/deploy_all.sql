@@ -20,14 +20,19 @@ GO
 :r ..\schema\create_schema.sql
 GO
 
--- 2) Tables (Kelvin)
--- :r ..\tables\promotion_campaign.sql
--- :r ..\tables\product_performance.sql
--- :r ..\tables\campaign_sales.sql
--- :r ..\tables\discount_audit.sql
+-- 2) Tables (Kelvin) - DONE
+:r ..\tables\promotion_campaign.sql
+GO
+:r ..\tables\product_performance.sql
+GO
+:r ..\tables\campaign_sales.sql
+GO
+:r ..\tables\discount_audit.sql
+GO
 
--- 3) Data load (Hassana) - INSERT ... SELECT from AdventureWorks2022
--- :r ..\data_load\load_analytics_data.sql
+-- 3) Data load (Hassana) - DONE
+:r ..\data_load\load_analytics_data.sql
+GO
 
 -- 4) Functions (Sahasri)
 -- :r ..\functions\ufn_GetDiscountRate.sql
