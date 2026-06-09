@@ -1,11 +1,13 @@
-﻿/*======================================================================
+﻿/********************************************************************************
     File   : scripts/functions/ufn_GetDiscountRate.sql
     Owner  : Sahasri (Step 4)
-    Purpose: Scalar function: discount rate
-    Status : STUB - to be implemented.
-======================================================================*/
+    Purpose: Scalar function - calculate discount rate from list and discounted price
+********************************************************************************/
 
-CREATE FUNCTION ufn_GetDiscountRate
+USE RetailPromotionAnalytics;
+GO
+
+CREATE OR ALTER FUNCTION RetailAnalytics.ufn_GetDiscountRate
 (
     @ListPrice MONEY,
     @DiscountedPrice MONEY
@@ -18,3 +20,4 @@ BEGIN
 
     RETURN (@ListPrice - @DiscountedPrice) / @ListPrice;
 END;
+GO
