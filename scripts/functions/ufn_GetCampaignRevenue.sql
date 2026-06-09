@@ -1,10 +1,9 @@
 ﻿/********************************************************************************
     File   : scripts/functions/ufn_GetCampaignRevenue.sql
     Owner  : Sahasri (Step 4)
-    Purpose: Scalar function - calculate campaign line revenue
-    Formula: QuantitySold x UnitPrice x (1 - DiscountRate)
-    Notes  : Matches Kelvin's CampaignSales.Revenue rule and Hassana's load script:
-             sod.OrderQty * sod.UnitPrice * (1 - sod.UnitPriceDiscount)
+    Purpose: Scalar function - campaign line revenue
+    Database: RetailPromotionAnalytics | Schema: RetailAnalytics
+    Formula : QuantitySold x UnitPrice x (1 - DiscountRate)
 ********************************************************************************/
 
 USE RetailPromotionAnalytics;

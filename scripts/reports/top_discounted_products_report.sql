@@ -1,6 +1,7 @@
 ﻿/********************************************************************************
     Report : Report #2 - Top Discounted Products
     Owner  : Sahasri (Step 4)
+    Database: RetailPromotionAnalytics | Schema: RetailAnalytics
     Purpose: Identify products with the highest discounts.
 
     Required output (per spec):

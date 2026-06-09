@@ -2,8 +2,8 @@
     Report : Report #3 - Product Category Performance
     Owner  : Brian (Step 4)
     Purpose: Analyzes category-level sales performance.
-    Database: RetailPromotionAnalytics (Kelvin tables + Hassana data)
-    Source data originally loaded from AdventureWorks2022.
+    Database: RetailPromotionAnalytics | Schema: RetailAnalytics
+    Source  : AdventureWorks2022 (read-only; data loaded by Hassana)
 ********************************************************************************/
 
 USE RetailPromotionAnalytics;

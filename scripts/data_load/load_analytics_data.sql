@@ -1,10 +1,11 @@
-﻿/*======================================================================
+﻿/********************************************************************************
     File   : scripts/data_load/load_analytics_data.sql
     Owner  : Hassana (Step 3)
-    Purpose: Load all 4 tables from AdventureWorks2022 (INSERT ... SELECT)
-    Notes  : Idempotent - safe to re-run. Skips load if table already has data.
-             Requires: schema + Kelvin's 4 table scripts run first.
-======================================================================*/
+    Purpose: Load all 4 tables (INSERT ... SELECT from AdventureWorks2022)
+    Database: RetailPromotionAnalytics | Schema: RetailAnalytics
+    Source  : AdventureWorks2022 (read-only source for SELECT statements)
+    Notes   : Idempotent. Run after create_schema.sql + Kelvin table scripts.
+********************************************************************************/
 
 USE RetailPromotionAnalytics;
 GO

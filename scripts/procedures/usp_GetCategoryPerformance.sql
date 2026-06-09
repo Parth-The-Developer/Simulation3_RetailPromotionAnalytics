@@ -1,7 +1,12 @@
 ﻿/********************************************************************************
--- Stored Procedure: RetailAnalytics.usp_GetCategoryPerformance
--- Purpose: Returns category-level sales performance for a given product category.
+    File   : scripts/procedures/usp_GetCategoryPerformance.sql
+    Owner  : Brian (Step 4)
+    Purpose: Category-level sales performance for a given product category
+    Database: RetailPromotionAnalytics | Schema: RetailAnalytics
 ********************************************************************************/
+
+USE RetailPromotionAnalytics;
+GO
 
 CREATE OR ALTER PROCEDURE RetailAnalytics.usp_GetCategoryPerformance
     @CategoryName NVARCHAR(100)

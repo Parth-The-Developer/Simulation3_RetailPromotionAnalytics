@@ -1,3 +1,9 @@
+/********************************************************************************
+    File   : scripts/tables/campaign_sales.sql
+    Owner  : Kelvin (Step 2)
+    Database: RetailPromotionAnalytics | Schema: RetailAnalytics
+********************************************************************************/
+
 USE RetailPromotionAnalytics;
 GO
 

@@ -4,8 +4,9 @@
     Purpose: Validate discount rates, revenue calculations, and audit integrity
              across Kelvin's tables and Hassana's loaded data.
 
-    Database: RetailPromotionAnalytics  (same as Parth schema + Kelvin + Hassana)
-    Prereq  : Run deploy_all.sql Steps 1-3 before this script.
+    Database: RetailPromotionAnalytics | Schema: RetailAnalytics
+    Source  : AdventureWorks2022 (read-only; data loaded by Hassana)
+    Prereq  : Run create_schema.sql, Kelvin tables, Hassana data load first.
 
     ER diagram (with Li): diagrams/Simulation-3.drawio
 ********************************************************************************/

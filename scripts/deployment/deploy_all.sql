@@ -7,6 +7,11 @@
       - In SSMS:  Query menu -> "SQLCMD Mode", then execute this file.
       - From CLI: sqlcmd -S <server> -d <database> -E -i scripts\deployment\deploy_all.sql
 
+    Database architecture:
+      - RetailPromotionAnalytics  → project database (all scripts run here)
+      - RetailAnalytics           → schema (required by spec)
+      - AdventureWorks2022        → source only (Hassana data load SELECTs)
+
     NOTE: All :r includes are COMMENTED OUT until Parth finalizes deploy_all.sql
           after the team finishes their scripts. Uncomment each line in order
           once that script is complete and tested.

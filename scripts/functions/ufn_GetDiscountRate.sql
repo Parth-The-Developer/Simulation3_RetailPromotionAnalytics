@@ -1,10 +1,9 @@
 ﻿/********************************************************************************
     File   : scripts/functions/ufn_GetDiscountRate.sql
     Owner  : Sahasri (Step 4)
-    Purpose: Scalar function - calculate discount rate as a percentage (0.000 - 1.000)
-    Formula: (ListPrice - DiscountedPrice) / ListPrice
-    Notes  : Aligns with Kelvin's DECIMAL(4,3) discount columns and Hassana's
-             CampaignSales.DiscountRate values loaded from AdventureWorks2022.
+    Purpose: Scalar function - calculate discount rate (0.000 - 0.500)
+    Database: RetailPromotionAnalytics | Schema: RetailAnalytics
+    Source  : AdventureWorks2022 (data loaded by Hassana into CampaignSales)
 ********************************************************************************/
 
 USE RetailPromotionAnalytics;

@@ -1,6 +1,12 @@
+/********************************************************************************
+    NOTE: Official data load script is scripts/data_load/load_analytics_data.sql
+    This copy is kept for reference. Use the data_load folder version.
+    Database: RetailPromotionAnalytics | Source: AdventureWorks2022
+********************************************************************************/
+
 USE RetailPromotionAnalytics;
 GO
--- DATA LOAD SCRIPT
+-- DATA LOAD SCRIPT (legacy copy - see scripts/data_load/)
 
 -- 1. PROMOTION CAMPAIGNS
 

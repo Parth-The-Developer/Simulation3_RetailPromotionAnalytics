@@ -1,7 +1,12 @@
-﻿﻿/********************************************************************************
--- Stored Procedure: RetailAnalytics.usp_GetRegionalSales
--- Purpose: Analyzes sales by region (total orders, total revenue, ave. revenue per order) for a given region.
+﻿/********************************************************************************
+    File   : scripts/procedures/usp_GetRegionalSales.sql
+    Owner  : Brian (Step 4)
+    Purpose: Regional sales analysis (orders, revenue, avg revenue per order)
+    Database: RetailPromotionAnalytics | Schema: RetailAnalytics
 ********************************************************************************/
+
+USE RetailPromotionAnalytics;
+GO
 
 CREATE OR ALTER PROCEDURE RetailAnalytics.usp_GetRegionalSales
     @Region NVARCHAR(50)
