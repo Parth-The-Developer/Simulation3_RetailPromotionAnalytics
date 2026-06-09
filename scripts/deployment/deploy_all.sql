@@ -34,9 +34,11 @@ GO
 :r ..\data_load\load_analytics_data.sql
 GO
 
--- 4) Functions (Sahasri)
--- :r ..\functions\ufn_GetDiscountRate.sql
--- :r ..\functions\ufn_GetCampaignRevenue.sql
+-- 4) Functions (Sahasri) - DONE (2 of 4; Dhruv owns the other 2)
+:r ..\functions\ufn_GetDiscountRate.sql
+GO
+:r ..\functions\ufn_GetCampaignRevenue.sql
+GO
 -- :r ..\functions\ufn_GetProductsByCategory.sql
 -- :r ..\functions\ufn_GetProductsByColor.sql
 
@@ -48,7 +50,8 @@ GO
 
 -- 6) Reports (Brian, Dhruv, Li, Sahil, Parth)
 -- :r ..\reports\campaign_revenue_report.sql
--- :r ..\reports\top_discounted_products_report.sql
+:r ..\reports\top_discounted_products_report.sql
+GO
 -- :r ..\reports\category_performance_report.sql
 -- :r ..\reports\regional_sales_report.sql
 -- :r ..\reports\discount_validation_report.sql
