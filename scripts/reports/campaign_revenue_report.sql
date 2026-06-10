@@ -1,13 +1,20 @@
-﻿/********************************************************************************
-    File   : scripts/reports/campaign_revenue_report.sql
-    Owner  : Joso (Step 4, Report #1)
-    Purpose: Report #1 - campaign revenue
-    Database: RetailPromotionAnalytics | Schema: RetailAnalytics
-    Status : STUB - to be implemented.
-********************************************************************************/
-
-USE RetailPromotionAnalytics;
+﻿USE RetailPromotionAnalytics;
 GO
 
--- TODO: implement campaign_revenue_report.sql
+SELECT
+    pc.CampaignName,
+    pp.ProductCategory,
+    SUM(cs.Revenue) AS TotalRevenue,
+    AVG(cs.DiscountRate) AS AverageDiscountRate,
+    SUM(cs.QuantitySold) AS UnitsSold
+FROM RetailAnalytics.CampaignSales cs
+INNER JOIN RetailAnalytics.PromotionCampaign pc
+    ON cs.CampaignID = pc.CampaignID
+INNER JOIN RetailAnalytics.ProductPerformance pp
+    ON cs.ProductID = pp.ProductID
+GROUP BY
+    pc.CampaignName,
+    pp.ProductCategory
+ORDER BY
+    TotalRevenue DESC;
 GO
