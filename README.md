@@ -132,7 +132,7 @@ Simulation3_RetailPromotionAnalytics/
 | 3 | Hassana — data load | Step 2 |
 | 4 | Josó, Sahasri, Brian, Dhruv, Lien, Sahil (parallel) | Step 3 |
 | 5 | Parth — constraint demo, Report #5, finalize `deploy_all.sql` | Step 3 |
-| 6 | Joshua — full deployment test + screenshots | Everyone else |
+| 6 | Joshua — full deployment test + screenshots (check) | Everyone else |
 
 ## Deployment Instructions
 
