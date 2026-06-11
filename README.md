@@ -191,7 +191,7 @@ Proof-of-execution screenshots are stored under `screenshots/<member>/`.
 | **Hassana** | Data load for all four tables | `PromotionCampaign.png`, `productPerformance.png`, `CampaignSales.png`, `DiscountAudit.png` |
 | **Josó** | Two procedures + Report #1 | `usp_GetCampaignRevenue.png`, `usp_GetTopDiscountedProducts.png`, `campaign_revenue_report.png` |
 | **Sahasri** | Two functions + Report #2 | Pending |
-| **Brian** | Two procedures + Report #3 | `8.4_usp_GetCategoryPerformance.sql_execution.png`, `8.4_usp_GetRegionalSales.sql_execution.png` |
+| **Brian** | Two procedures + Report #3 | `8.4_usp_GetCategoryPerformance.sql_execution.png`, `8.4_usp_GetRegionalSales.sql_execution.png`, `category_performance_report.png` |
 | **Dhruv** | Two TVFs + Report #4 | `ufn_GetProductsByCategory.png`, `ufn_GetProductsByColor.png`, `regional_sales_report.png` |
 | **Lien** | Variables demo | `Step 4_variables_demo1.png`, `Step 4_variables_demo2.png` |
 | **Sahil** | Discount validation | `simulation-3.png` |
