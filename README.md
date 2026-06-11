@@ -65,6 +65,7 @@ scripts/
 diagrams/
 screenshots/
 README.md
+document.md
 ```
 
 ## Tasks
@@ -125,20 +126,9 @@ README.md
 
 ## Screenshot Documentation
 
-Save all proof-of-execution screenshots in the `screenshots/` folder under each team member's subfolder.
+Step-by-step screenshot instructions for all tasks (Tasks 1–16) and business reports are in **[document.md](document.md)**.
 
-| Member | What to Capture |
-| --- | --- |
-| Parth | Schema creation, constraint lifecycle demo, Report #5 |
-| Kelvin | Table creation scripts (4 tables) |
-| Hassana | Data load execution and row counts for all 4 tables |
-| Sahasri | Both functions and Report #2 |
-| Josó | Both procedures and Report #1 |
-| Brian | Both procedures and Report #3 |
-| Dhruv | Both functions and Report #4 |
-| Lien | Variables demo script output |
-| Sahil | Discount validation script output |
-| Joshua | Full `deploy_all.sql` execution and `sample_execution.sql` |
+Save all proof-of-execution screenshots in the `screenshots/` folder under each team member's subfolder.
 
 ## Submission
 
