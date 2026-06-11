@@ -130,7 +130,7 @@ GO
 -- Verification (for screenshot / testing)
 ----------------------------------------------------------------------
 PRINT '--- Row counts ---';
-SELECT 'PromotionCampaign'  AS TableName, COUNT(*) AS RowCount FROM RetailAnalytics.PromotionCampaign
+SELECT 'PromotionCampaign'  AS TableName, COUNT(*) AS [Row Count] FROM RetailAnalytics.PromotionCampaign
 UNION ALL
 SELECT 'ProductPerformance', COUNT(*) FROM RetailAnalytics.ProductPerformance
 UNION ALL
