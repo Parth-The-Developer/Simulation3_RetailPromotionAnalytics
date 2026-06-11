@@ -66,6 +66,7 @@ diagrams/
 screenshots/
 README.md
 document.md
+deploy_all_execution.md
 ```
 
 ## Tasks
@@ -123,6 +124,8 @@ document.md
 ```powershell
 .\scripts\deployment\deploy.ps1
 ```
+
+Full deployment execution steps and proof-of-execution screenshots are in **[deploy_all_execution.md](deploy_all_execution.md)**.
 
 ## Screenshot Documentation
 

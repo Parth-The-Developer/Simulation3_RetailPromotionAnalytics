@@ -173,6 +173,8 @@ SELECT * FROM RetailAnalytics.ufn_GetProductsByColor(N'Red');
 **Script:** `scripts/deployment/deploy_all.sql`  
 **Screenshot:** ![Deploy all](/screenshots/Joshua/deploy_all.png)
 
+See **[deploy_all_execution.md](deploy_all_execution.md)** for full deployment steps and troubleshooting.
+
 ---
 
 ## Task 16 — End-to-End Sample Execution
