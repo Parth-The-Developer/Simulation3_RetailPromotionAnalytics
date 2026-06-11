@@ -1,9 +1,10 @@
-# Run deploy_all.sql from the project root so :r paths resolve correctly.
+# Run deploy_all.sql with an absolute ScriptsRoot path for sqlcmd :r includes.
 $ProjectRoot = Resolve-Path (Join-Path $PSScriptRoot "..\..")
-$DeployScript = Join-Path $ProjectRoot "scripts\deployment\deploy_all.sql"
+$ScriptsRoot = Join-Path $ProjectRoot "scripts"
+$DeployScript = Join-Path $ScriptsRoot "deployment\deploy_all.sql"
 
-Set-Location $ProjectRoot
-Write-Host "Project root: $ProjectRoot"
-Write-Host "Running: $DeployScript"
+Write-Host "Project root : $ProjectRoot"
+Write-Host "Scripts root : $ScriptsRoot"
+Write-Host "Deploy script: $DeployScript"
 
-sqlcmd -S localhost -E -i $DeployScript
+sqlcmd -S localhost -E -v ScriptsRoot="$ScriptsRoot" -i $DeployScript
