@@ -10,200 +10,135 @@
 | **Repository** | [Simulation3_RetailPromotionAnalytics](https://github.com/Parth-The-Developer/Simulation3_RetailPromotionAnalytics) |
 | **Team Members** | Parth Patel, Kelvin Idoko, Hassana, Sahasri, Josó, Brian, Dhruv, Lien, Sahil, Joshua |
 | **Instructor** | vbogudskyi |
-| **Project Status** | Complete |
 
----
+## Simulation Overview
 
-## Executive Summary
+This simulation implements a reusable retail promotion analytics environment using **Microsoft SQL Server**, **T-SQL**, and **SQLCMD deployment automation** against the **AdventureWorks2022** database. All custom analytics objects are created in the **RetailAnalytics** schema inside the **RetailPromotionAnalytics** database.
 
-This project delivers a fully automated **Retail Promotion Analytics** solution on **Microsoft SQL Server**. Operational data is sourced from **AdventureWorks2022** (read-only) and transformed into a dedicated analytics database (**RetailPromotionAnalytics**) under the **RetailAnalytics** schema.
+The project includes:
 
-The solution includes idempotent DDL, set-based ETL, reusable T-SQL functions, parameterized stored procedures, operational reports, validation scripts, and a master **SQLCMD** deployment pipeline.
-
----
-
-## Database Architecture
-
-| Database / Schema | Purpose |
-| --- | --- |
-| `AdventureWorks2022` | **Source database** — read-only; referenced in Hassana's `INSERT ... SELECT` statements |
-| `RetailPromotionAnalytics` | **Project database** — all team scripts execute here |
-| `RetailAnalytics` | **Required schema** — contains all tables, functions, procedures, and reports |
-
-> Run every script against **`RetailPromotionAnalytics`**, except data-load `SELECT` statements that read from `AdventureWorks2022`.
-
-### Analytics Tables
-
-| Table | Description |
-| --- | --- |
-| `PromotionCampaign` | Campaign master data with discount rate constraints |
-| `ProductPerformance` | Product catalog metrics sourced from AdventureWorks production data |
-| `CampaignSales` | Campaign-attributed sales transactions by region |
-| `DiscountAudit` | Discount validation audit trail derived from campaign sales |
-
----
+- Idempotent schema and table creation with keys, constraints, and joins
+- Set-based data loading using `INSERT ... SELECT`
+- Scalar-valued and inline table-valued functions
+- Parameterized stored procedures
+- Operational business reports
+- T-SQL variable and control-flow demonstrations
+- Validation and constraint lifecycle scripts
+- Modular master deployment script (`deploy_all.sql`)
 
 ## Folder Structure
 
 ```text
-Simulation3_RetailPromotionAnalytics/
-├── README.md
-├── document.md
-├── diagrams/
-│   ├── Simulation-3.drawio
-│   ├── simulation-3.jpg
-│   └── retail_analytics_er_diagram.jpg
-├── screenshots/
-│   ├── Parth/
-│   ├── Kelvin/
-│   ├── Hassana/
-│   ├── Sahasri/
-│   ├── Joso/
-│   ├── Brian/
-│   ├── Dhruv/
-│   ├── Lien/
-│   ├── Sahil/
-│   └── Joshua/
-└── scripts/
-    ├── schema/
-    ├── tables/
-    ├── data_load/
-    ├── functions/
-    ├── procedures/
-    ├── reports/
-    ├── validation/
-    └── deployment/
+scripts/
+├── schema/
+│   └── create_schema.sql
+├── tables/
+│   ├── promotion_campaign.sql
+│   ├── product_performance.sql
+│   ├── campaign_sales.sql
+│   └── discount_audit.sql
+├── data_load/
+│   └── load_analytics_data.sql
+├── functions/
+│   ├── ufn_GetDiscountRate.sql
+│   ├── ufn_GetCampaignRevenue.sql
+│   ├── ufn_GetProductsByCategory.sql
+│   └── ufn_GetProductsByColor.sql
+├── procedures/
+│   ├── usp_GetCampaignRevenue.sql
+│   ├── usp_GetTopDiscountedProducts.sql
+│   ├── usp_GetCategoryPerformance.sql
+│   └── usp_GetRegionalSales.sql
+├── reports/
+│   ├── campaign_revenue_report.sql
+│   ├── top_discounted_products_report.sql
+│   ├── category_performance_report.sql
+│   ├── regional_sales_report.sql
+│   ├── discount_validation_report.sql
+│   └── variables_demo.sql
+├── validation/
+│   ├── check_discounts.sql
+│   └── constraint_lifecycle_demo.sql
+└── deployment/
+    ├── deploy_all.sql
+    └── sample_execution.sql
+diagrams/
+screenshots/
+README.md
 ```
 
----
+## Tasks
 
-## Task Completion Matrix
-
-| Task | Description | Owner | Script / Object | Status |
-| --- | --- | --- | --- | --- |
-| 1 | GitHub repo, folder structure, and schema script | Parth | `schema/create_schema.sql` | Done |
-| 2 | Four analytics tables with PK, FK, CHECK, and DEFAULT constraints | Kelvin | `tables/*.sql` | Done |
-| 3 | Load all four tables from AdventureWorks2022 | Hassana | `data_load/load_analytics_data.sql` | Done |
-| 4 | Campaign revenue stored procedure | Josó | `RetailAnalytics.usp_GetCampaignRevenue` | Done |
-| 5 | Top discounted products stored procedure | Josó | `RetailAnalytics.usp_GetTopDiscountedProducts` | Done |
-| 6 | Discount rate scalar function | Sahasri | `RetailAnalytics.ufn_GetDiscountRate` | Done |
-| 7 | Campaign revenue scalar function | Sahasri | `RetailAnalytics.ufn_GetCampaignRevenue` | Done |
-| 8 | Category performance stored procedure | Brian | `RetailAnalytics.usp_GetCategoryPerformance` | Done |
-| 9 | Regional sales stored procedure | Brian | `RetailAnalytics.usp_GetRegionalSales` | Done |
-| 10 | Products by category table-valued function | Dhruv | `RetailAnalytics.ufn_GetProductsByCategory` | Done |
-| 11 | Products by color table-valued function | Dhruv | `RetailAnalytics.ufn_GetProductsByColor` | Done |
-| 12 | T-SQL variables and control-flow demo | Lien | `reports/variables_demo.sql` | Done |
-| 13 | Discount validation script | Sahil | `validation/check_discounts.sql` | Done |
-| 14 | Constraint lifecycle demonstration | Parth | `validation/constraint_lifecycle_demo.sql` | Done |
-| 15 | SQLCMD master deployment script | Parth | `deployment/deploy_all.sql` | Done |
-| 16 | End-to-end test and sample execution | Joshua | `deployment/sample_execution.sql` | Done |
-
----
+| Task | Description | Object / Script |
+| --- | --- | --- |
+| 1 | Create GitHub repo, folder structure, and schema script | `schema/create_schema.sql` |
+| 2 | Create 4 analytics tables with PK, FK, CHECK, and DEFAULT constraints | `tables/*.sql` |
+| 3 | Load data into all 4 tables from AdventureWorks2022 | `data_load/load_analytics_data.sql` |
+| 4 | Campaign revenue stored procedure | `RetailAnalytics.usp_GetCampaignRevenue` |
+| 5 | Top discounted products stored procedure | `RetailAnalytics.usp_GetTopDiscountedProducts` |
+| 6 | Discount rate scalar function | `RetailAnalytics.ufn_GetDiscountRate` |
+| 7 | Campaign revenue scalar function | `RetailAnalytics.ufn_GetCampaignRevenue` |
+| 8 | Category performance stored procedure | `RetailAnalytics.usp_GetCategoryPerformance` |
+| 9 | Regional sales stored procedure | `RetailAnalytics.usp_GetRegionalSales` |
+| 10 | Products by category table-valued function | `RetailAnalytics.ufn_GetProductsByCategory` |
+| 11 | Products by color table-valued function | `RetailAnalytics.ufn_GetProductsByColor` |
+| 12 | T-SQL variables and control-flow demo | `reports/variables_demo.sql` |
+| 13 | Discount validation script | `validation/check_discounts.sql` |
+| 14 | Constraint lifecycle demonstration | `validation/constraint_lifecycle_demo.sql` |
+| 15 | SQLCMD master deployment script | `deployment/deploy_all.sql` |
+| 16 | End-to-end test and sample execution | `deployment/sample_execution.sql` |
 
 ## Business Reports
 
-| Report | Description | Owner | Script | Status |
-| --- | --- | --- | --- | --- |
-| 1 | Campaign Revenue Report | Josó | `reports/campaign_revenue_report.sql` | Done |
-| 2 | Top Discounted Products Report | Sahasri | `reports/top_discounted_products_report.sql` | Done |
-| 3 | Product Category Performance Report | Brian | `reports/category_performance_report.sql` | Done |
-| 4 | Regional Sales Analysis Report | Dhruv | `reports/regional_sales_report.sql` | Done |
-| 5 | Discount Validation Report | Parth | `reports/discount_validation_report.sql` | Done |
+| Report | Description | Script |
+| --- | --- | --- |
+| 1 | Campaign Revenue Report | `reports/campaign_revenue_report.sql` |
+| 2 | Top Discounted Products Report | `reports/top_discounted_products_report.sql` |
+| 3 | Product Category Performance Report | `reports/category_performance_report.sql` |
+| 4 | Regional Sales Analysis Report | `reports/regional_sales_report.sql` |
+| 5 | Discount Validation Report | `reports/discount_validation_report.sql` |
 
----
+## Deployment Instructions
 
-## Build and Dependency Workflow
+`scripts/deployment/deploy_all.sql` is the master script. It uses SQLCMD `:r` includes to run all components in dependency order.
 
-```text
-Schema → Tables → Data Load → Functions → Procedures → Reports → Validation → Deployment → Smoke Test
-```
+**Prerequisites**
 
-| Step | Owner | Deliverable | Depends On |
-| --- | --- | --- | --- |
-| 1 | Parth | Schema + repository setup | — |
-| 2 | Kelvin | Four table scripts | Step 1 |
-| 3 | Hassana | Data load script | Step 2 |
-| 4 | Josó, Sahasri, Brian, Dhruv, Lien, Sahil | Functions, procedures, reports, validation | Step 3 |
-| 5 | Parth | Constraint demo, Report #5, `deploy_all.sql` | Step 3 |
-| 6 | Joshua | Full deployment test + `sample_execution.sql` | Steps 1–5 |
+- Microsoft SQL Server Developer Edition
+- SQL Server Management Studio (SSMS) or Azure Data Studio
+- AdventureWorks2022 attached on the same instance
+- SQLCMD Mode enabled in SSMS
 
----
+**Run in SSMS**
 
-## Deployment Guide
+1. Open `scripts/deployment/deploy_all.sql`
+2. Update `ScriptsRoot` to your local `scripts` folder path
+3. Enable **Query → SQLCMD Mode**
+4. Execute the script
+5. Run `scripts/deployment/sample_execution.sql` to verify results
 
-### Prerequisites
-
-- Microsoft SQL Server Developer Edition (local instance)
-- SQL Server Management Studio (SSMS) or Azure Data Studio with SQLCMD support
-- **AdventureWorks2022** attached on the same instance
-- SQLCMD Mode enabled when running deployment scripts in SSMS
-
-### Option A — SSMS / Azure Data Studio (Recommended)
-
-1. Clone the repository locally.
-2. Open `scripts/deployment/deploy_all.sql`.
-3. Update **`ScriptsRoot`** (line 19) to your local `scripts` folder path:
-
-   ```sql
-   :setvar ScriptsRoot "C:\path\to\Simulation_3\scripts"
-   ```
-
-4. Enable **Query → SQLCMD Mode**.
-5. Execute the script.
-6. Run `scripts/deployment/sample_execution.sql` to verify end-to-end results.
-
-### Option B — PowerShell Helper
-
-From the repository root:
+**Run from CLI**
 
 ```powershell
 .\scripts\deployment\deploy.ps1
 ```
 
-This sets `ScriptsRoot` automatically and invokes `sqlcmd`.
-
-### Option C — Manual sqlcmd
-
-```powershell
-cd C:\path\to\Simulation_3
-sqlcmd -S localhost -E -v ScriptsRoot="C:\path\to\Simulation_3\scripts" -i scripts\deployment\deploy_all.sql
-```
-
-### Deployment Order (via `deploy_all.sql`)
-
-1. Schema creation
-2. Table creation (Kelvin)
-3. Data load (Hassana)
-4. Functions (Sahasri, Dhruv)
-5. Stored procedures (Josó, Brian)
-6. Reports (all owners)
-7. Validation scripts (Sahil, Parth)
-
----
-
 ## Screenshot Documentation
-
-Step-by-step screenshot instructions for all tasks (Tasks 1–16) and business reports are in **[document.md](document.md)**.
 
 Save all proof-of-execution screenshots in the `screenshots/` folder under each team member's subfolder.
 
----
-
-## Verification Checklist
-
-After deployment, confirm the following:
-
-- [ ] Database `RetailPromotionAnalytics` exists
-- [ ] Schema `RetailAnalytics` exists
-- [ ] All four tables contain data
-- [ ] All four functions compile and execute
-- [ ] All four stored procedures compile and execute
-- [ ] All five reports return results
-- [ ] `check_discounts.sql` passes validation steps
-- [ ] `constraint_lifecycle_demo.sql` completes without errors
-- [ ] `sample_execution.sql` smoke test completes successfully
-
----
+| Member | What to Capture |
+| --- | --- |
+| Parth | Schema creation, constraint lifecycle demo, Report #5 |
+| Kelvin | Table creation scripts (4 tables) |
+| Hassana | Data load execution and row counts for all 4 tables |
+| Sahasri | Both functions and Report #2 |
+| Josó | Both procedures and Report #1 |
+| Brian | Both procedures and Report #3 |
+| Dhruv | Both functions and Report #4 |
+| Lien | Variables demo script output |
+| Sahil | Discount validation script output |
+| Joshua | Full `deploy_all.sql` execution and `sample_execution.sql` |
 
 ## Submission
 
@@ -211,10 +146,4 @@ Submit only the private GitHub repository link:
 
 `https://github.com/Parth-The-Developer/Simulation3_RetailPromotionAnalytics`
 
-All scripts must execute successfully. Enable **SQLCMD Mode** before running `deploy_all.sql`, and set `ScriptsRoot` to your local `scripts` folder path.
-
----
-
-## License and Academic Use
-
-This repository was developed as a group simulation project for **ITE-5223 — SQL Server Database Development**. For academic review and course submission only.
+All scripts must execute successfully without manual modification. Enable SQLCMD Mode before running deployment scripts.
