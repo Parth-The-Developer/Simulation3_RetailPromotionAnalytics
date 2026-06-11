@@ -79,7 +79,7 @@ EXEC RetailAnalytics.usp_GetTopDiscountedProducts @MinimumDiscountRate = 0.20;
 ## Task 6 — Discount Rate Scalar Function
 
 **Script:** `scripts/functions/ufn_GetDiscountRate.sql`  
-**Screenshot:** _Pending — `screenshots/Sahasri/ufn_GetDiscountRate.png`_
+**Screenshot:** ![Discount rate function](/screenshots/Sahasri/discount_rate.png)
 
 ```sql
 SELECT RetailAnalytics.ufn_GetDiscountRate(100.00, 75.00) AS DiscountRate;
@@ -90,7 +90,7 @@ SELECT RetailAnalytics.ufn_GetDiscountRate(100.00, 75.00) AS DiscountRate;
 ## Task 7 — Campaign Revenue Scalar Function
 
 **Script:** `scripts/functions/ufn_GetCampaignRevenue.sql`  
-**Screenshot:** _Pending — `screenshots/Sahasri/ufn_GetCampaignRevenue.png`_
+**Screenshot:** ![Campaign revenue function](/screenshots/Sahasri/campaign_revenue.png)
 
 ```sql
 SELECT RetailAnalytics.ufn_GetCampaignRevenue(10, 25.00, 0.20) AS Revenue;
@@ -192,7 +192,7 @@ SELECT * FROM RetailAnalytics.ufn_GetProductsByColor(N'Red');
 ## Report 2 — Top Discounted Products Report
 
 **Script:** `scripts/reports/top_discounted_products_report.sql`  
-**Screenshot:** _Pending — `screenshots/Sahasri/top_discounted_products_report.png`_
+**Screenshot:** ![Top discounted products report](/screenshots/Sahasri/report_2.png)
 
 ---
 

@@ -130,6 +130,19 @@ Step-by-step screenshot instructions for all tasks (Tasks 1–16) and business r
 
 Save all proof-of-execution screenshots in the `screenshots/` folder under each team member's subfolder.
 
+| Member | What to Capture | Status |
+| --- | --- | --- |
+| Parth | Schema creation, constraint lifecycle demo, Report #5 | Complete |
+| Kelvin | Table creation scripts (4 tables) | Complete |
+| Hassana | Data load execution for all 4 tables | Complete |
+| Sahasri | Both functions and Report #2 | Complete |
+| Josó | Both procedures and Report #1 | Complete |
+| Brian | Both procedures and Report #3 | Complete |
+| Dhruv | Both functions and Report #4 | Complete |
+| Lien | Variables demo script output | Complete |
+| Sahil | Discount validation script output | Complete |
+| Joshua | `deploy_all.sql` and `sample_execution.sql` | Complete |
+
 ## Submission
 
 Submit only the private GitHub repository link:
