@@ -1,5 +1,15 @@
-﻿USE RetailPromotionAnalytics;
+﻿/********************************************************************************
+    Report : Report #1 - Campaign Revenue Report
+    Owner  : Josó (Step 4)
+    Purpose: Campaign revenue by campaign name and product category.
+    Database: RetailPromotionAnalytics | Schema: RetailAnalytics
+    Source  : Kelvin tables + Hassana data load
+********************************************************************************/
+
+USE RetailPromotionAnalytics;
 GO
+
+SET NOCOUNT ON;
 
 SELECT
     pc.CampaignName,
@@ -17,4 +27,7 @@ GROUP BY
     pp.ProductCategory
 ORDER BY
     TotalRevenue DESC;
+GO
+
+PRINT 'Report #1 (Campaign Revenue) executed successfully.';
 GO

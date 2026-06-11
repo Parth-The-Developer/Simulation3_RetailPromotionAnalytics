@@ -35,7 +35,7 @@ Open `scripts/deployment/deploy_all.sql` and set line 19 to your local clone pat
 :setvar ScriptsRoot "C:\Users\parth\Desktop\sem-2\SQL_SERVER_DEVELOPMENT\Simulation_3\scripts"
 ```
 
-Replace the path if your repository is cloned elsewhere.
+Replace the path if your repository is cloned elsewhere. When using `deploy.ps1`, this value is overridden automatically.
 
 ---
 

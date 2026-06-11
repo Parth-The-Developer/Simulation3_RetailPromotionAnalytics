@@ -1,6 +1,6 @@
 ﻿/********************************************************************************
     File   : scripts/procedures/usp_GetTopDiscountedProducts.sql
-    Owner  : Joshua (Step 4)
+    Owner  : Josó (Step 4)
     Purpose: Top discounted products procedure
     Database: RetailPromotionAnalytics
     Schema  : RetailAnalytics

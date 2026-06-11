@@ -15,7 +15,8 @@
       - AdventureWorks2022        → source only (Hassana data load SELECTs)
 ======================================================================*/
 
--- EDIT THIS PATH if your repo is in a different location.
+-- SSMS: Set ScriptsRoot to your local scripts folder (full path required).
+-- CLI: deploy.ps1 passes ScriptsRoot automatically via sqlcmd -v.
 :setvar ScriptsRoot "C:\Users\parth\Desktop\sem-2\SQL_SERVER_DEVELOPMENT\Simulation_3\scripts"
 
 PRINT '== Deploy started ==';

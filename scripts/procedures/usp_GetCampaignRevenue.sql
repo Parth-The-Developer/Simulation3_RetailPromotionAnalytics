@@ -1,6 +1,6 @@
 ﻿/********************************************************************************
     File   : scripts/procedures/usp_GetCampaignRevenue.sql
-    Owner  : Joshua (Step 4)
+    Owner  : Josó (Step 4)
     Purpose: Campaign revenue reporting procedure
     Database: RetailPromotionAnalytics
     Schema  : RetailAnalytics

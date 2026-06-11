@@ -1,0 +1,6 @@
+.vs/
+*.user
+*.suo
+*.slnx.sqlite
+*.dbmdl
+*.jfm

@@ -10,6 +10,7 @@
 | **Repository** | [Simulation3_RetailPromotionAnalytics](https://github.com/Parth-The-Developer/Simulation3_RetailPromotionAnalytics) |
 | **Team Members** | Parth Patel, Kelvin Idoko, Hassana, Sahasri, Josó, Brian, Dhruv, Lien, Sahil, Joshua |
 | **Instructor** | vbogudskyi |
+| **Project Status** | Complete |
 
 ## Simulation Overview
 
@@ -152,4 +153,4 @@ Submit only the private GitHub repository link:
 
 `https://github.com/Parth-The-Developer/Simulation3_RetailPromotionAnalytics`
 
-All scripts must execute successfully without manual modification. Enable SQLCMD Mode before running deployment scripts.
+All scripts must execute successfully. Enable SQLCMD Mode before running `deploy_all.sql`, set `ScriptsRoot` to your local `scripts` folder, or use `.\scripts\deployment\deploy.ps1`.
