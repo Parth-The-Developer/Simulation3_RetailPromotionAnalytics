@@ -21,4 +21,10 @@ BEGIN
 
     RETURN @QuantitySold * @UnitPrice * (1 - @DiscountRate);
 END;
+
 GO
+
+
+
+SELECT dbo.ufn_GetCampaignRevenue(10, 100, 0.10) AS CampaignRevenue;
+

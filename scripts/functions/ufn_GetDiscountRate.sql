@@ -4,8 +4,6 @@
     Purpose: Scalar function - calculate discount rate from list and discounted price
 ********************************************************************************/
 
-USE RetailPromotionAnalytics;
-GO
 
 CREATE OR ALTER FUNCTION RetailAnalytics.ufn_GetDiscountRate
 (
@@ -21,3 +19,8 @@ BEGIN
     RETURN (@ListPrice - @DiscountedPrice) / @ListPrice;
 END;
 GO
+
+
+
+SELECT dbo.ufn_GetDiscountRate(1000, 800) AS DiscountRate;
+
