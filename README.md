@@ -90,34 +90,58 @@ deploy_all_execution.md
 
 ## Tasks
 
-| Task | Description | Object / Script |
-| --- | --- | --- |
-| 1 | Create GitHub repo, folder structure, and schema script | `schema/create_schema.sql` |
-| 2 | Create 4 analytics tables with PK, FK, CHECK, and DEFAULT constraints | `tables/*.sql` |
-| 3 | Load data into all 4 tables from AdventureWorks2022 | `data_load/load_analytics_data.sql` |
-| 4 | Campaign revenue stored procedure | `RetailAnalytics.usp_GetCampaignRevenue` |
-| 5 | Top discounted products stored procedure | `RetailAnalytics.usp_GetTopDiscountedProducts` |
-| 6 | Discount rate scalar function | `RetailAnalytics.ufn_GetDiscountRate` |
-| 7 | Campaign revenue scalar function | `RetailAnalytics.ufn_GetCampaignRevenue` |
-| 8 | Category performance stored procedure | `RetailAnalytics.usp_GetCategoryPerformance` |
-| 9 | Regional sales stored procedure | `RetailAnalytics.usp_GetRegionalSales` |
-| 10 | Products by category table-valued function | `RetailAnalytics.ufn_GetProductsByCategory` |
-| 11 | Products by color table-valued function | `RetailAnalytics.ufn_GetProductsByColor` |
-| 12 | T-SQL variables and control-flow demo | `reports/variables_demo.sql` |
-| 13 | Discount validation script | `validation/check_discounts.sql` |
-| 14 | Constraint lifecycle demonstration | `validation/constraint_lifecycle_demo.sql` |
-| 15 | SQLCMD master deployment script | `deployment/deploy_all.sql` |
-| 16 | End-to-end test and sample execution | `deployment/sample_execution.sql` |
+| Task | Description | Owner | Object / Script |
+| --- | --- | --- | --- |
+| 1 | Create GitHub repo, folder structure, and schema script | Parth | `schema/create_schema.sql` |
+| 2 | Create 4 analytics tables with PK, FK, CHECK, and DEFAULT constraints | Kelvin | `tables/*.sql` |
+| 3 | Load data into all 4 tables from AdventureWorks2022 | Hassana | `data_load/load_analytics_data.sql` |
+| 4 | Campaign revenue stored procedure | Josó | `RetailAnalytics.usp_GetCampaignRevenue` |
+| 5 | Top discounted products stored procedure | Josó | `RetailAnalytics.usp_GetTopDiscountedProducts` |
+| 6 | Discount rate scalar function | Sahasri | `RetailAnalytics.ufn_GetDiscountRate` |
+| 7 | Campaign revenue scalar function | Sahasri | `RetailAnalytics.ufn_GetCampaignRevenue` |
+| 8 | Category performance stored procedure | Brian | `RetailAnalytics.usp_GetCategoryPerformance` |
+| 9 | Regional sales stored procedure | Brian | `RetailAnalytics.usp_GetRegionalSales` |
+| 10 | Products by category table-valued function | Dhruv | `RetailAnalytics.ufn_GetProductsByCategory` |
+| 11 | Products by color table-valued function | Dhruv | `RetailAnalytics.ufn_GetProductsByColor` |
+| 12 | T-SQL variables and control-flow demo | Lien | `reports/variables_demo.sql` |
+| 13 | Discount validation script | Sahil | `validation/check_discounts.sql` |
+| 14 | Constraint lifecycle demonstration | Parth | `validation/constraint_lifecycle_demo.sql` |
+| 15 | SQLCMD master deployment script | Parth | `deployment/deploy_all.sql` |
+| 16 | End-to-end test and sample execution | Joshua | `deployment/sample_execution.sql` |
 
 ## Business Reports
 
-| Report | Description | Script |
+| Report | Description | Owner | Script |
+| --- | --- | --- | --- |
+| 1 | Campaign Revenue Report | Josó | `reports/campaign_revenue_report.sql` |
+| 2 | Top Discounted Products Report | Sahasri | `reports/top_discounted_products_report.sql` |
+| 3 | Product Category Performance Report | Brian | `reports/category_performance_report.sql` |
+| 4 | Regional Sales Analysis Report | Dhruv | `reports/regional_sales_report.sql` |
+| 5 | Discount Validation Report | Parth | `reports/discount_validation_report.sql` |
+
+## Team Task Ownership
+
+| Member | Tasks | Deliverables |
 | --- | --- | --- |
-| 1 | Campaign Revenue Report | `reports/campaign_revenue_report.sql` |
-| 2 | Top Discounted Products Report | `reports/top_discounted_products_report.sql` |
-| 3 | Product Category Performance Report | `reports/category_performance_report.sql` |
-| 4 | Regional Sales Analysis Report | `reports/regional_sales_report.sql` |
-| 5 | Discount Validation Report | `reports/discount_validation_report.sql` |
+| **Parth** | 1, 14, 15, Report #5 | `create_schema.sql`, `constraint_lifecycle_demo.sql`, `deploy_all.sql`, `discount_validation_report.sql` |
+| **Kelvin** | 2 | `tables/*.sql` (4 analytics tables) |
+| **Hassana** | 3 | `load_analytics_data.sql` |
+| **Josó** | 4, 5, Report #1 | `usp_GetCampaignRevenue`, `usp_GetTopDiscountedProducts`, `campaign_revenue_report.sql` |
+| **Sahasri** | 6, 7, Report #2 | `ufn_GetDiscountRate`, `ufn_GetCampaignRevenue`, `top_discounted_products_report.sql` |
+| **Brian** | 8, 9, Report #3 | `usp_GetCategoryPerformance`, `usp_GetRegionalSales`, `category_performance_report.sql` |
+| **Dhruv** | 10, 11, Report #4 | `ufn_GetProductsByCategory`, `ufn_GetProductsByColor`, `regional_sales_report.sql` |
+| **Lien** | 12 | `variables_demo.sql` |
+| **Sahil** | 13 | `check_discounts.sql` |
+| **Joshua** | 16 | `sample_execution.sql`, full deployment verification |
+
+| Step | Owner | Starts After |
+| --- | --- | --- |
+| 1 | Parth — schema + repo setup | Immediately |
+| 2 | Kelvin — 4 table scripts | Step 1 |
+| 3 | Hassana — data load | Step 2 |
+| 4 | Josó, Sahasri, Brian, Dhruv, Lien, Sahil | Step 3 |
+| 5 | Parth — constraint demo, Report #5, `deploy_all.sql` | Step 3 |
+| 6 | Joshua — deployment test + `sample_execution.sql` | Steps 1–5 |
 
 ## Build Order
 
