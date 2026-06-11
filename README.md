@@ -48,6 +48,7 @@ The solution includes idempotent DDL, set-based ETL, reusable T-SQL functions, p
 ```text
 Simulation3_RetailPromotionAnalytics/
 ├── README.md
+├── document.md
 ├── diagrams/
 │   ├── Simulation-3.drawio
 │   ├── simulation-3.jpg
@@ -182,20 +183,9 @@ sqlcmd -S localhost -E -v ScriptsRoot="C:\path\to\Simulation_3\scripts" -i scrip
 
 ## Screenshot Documentation
 
-Proof-of-execution screenshots are stored under `screenshots/<member>/`.
+Step-by-step screenshot instructions for all tasks (Tasks 1–16) and business reports are in **[document.md](document.md)**.
 
-| Member | Required Evidence | Files |
-| --- | --- | --- |
-| **Parth** | Schema, constraint lifecycle, Report #5 | `create_schema_execution.png`, `constraint_lifecycle_demo.png`, `discount_validation_report.png` |
-| **Kelvin** | Four table scripts | `Task_6_1_promotion_campaign.png`, `Task_6_1_product_performance.png`, `Task_6_1_campaign_sales.png`, `Task_6_1_discount_audit.png` |
-| **Hassana** | Data load for all four tables | `PromotionCampaign.png`, `productPerformance.png`, `CampaignSales.png`, `DiscountAudit.png` |
-| **Josó** | Two procedures + Report #1 | `usp_GetCampaignRevenue.png`, `usp_GetTopDiscountedProducts.png`, `campaign_revenue_report.png` |
-| **Sahasri** | Two functions + Report #2 | Pending |
-| **Brian** | Two procedures + Report #3 | `8.4_usp_GetCategoryPerformance.sql_execution.png`, `8.4_usp_GetRegionalSales.sql_execution.png`, `category_performance_report.png` |
-| **Dhruv** | Two TVFs + Report #4 | `ufn_GetProductsByCategory.png`, `ufn_GetProductsByColor.png`, `regional_sales_report.png` |
-| **Lien** | Variables demo | `Step 4_variables_demo1.png`, `Step 4_variables_demo2.png` |
-| **Sahil** | Discount validation | `simulation-3.png` |
-| **Joshua** | Deploy + smoke test | `deploy_all.png`, `sample_execution.png` |
+Save all proof-of-execution screenshots in the `screenshots/` folder under each team member's subfolder.
 
 ---
 
