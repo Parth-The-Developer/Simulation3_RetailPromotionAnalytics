@@ -27,6 +27,24 @@ The project includes:
 - Validation and constraint lifecycle scripts
 - Modular master deployment script (`deploy_all.sql`)
 
+## Documentation
+
+| Document | Description |
+| --- | --- |
+| [README.md](README.md) | Project overview, tasks, reports, and deployment summary |
+| [document.md](document.md) | Step-by-step screenshot proof for Tasks 1–16 and Reports 1–5 |
+| [deploy_all_execution.md](deploy_all_execution.md) | Full `deploy_all.sql` execution guide with troubleshooting |
+
+## Database Architecture
+
+| Database / Schema | Purpose |
+| --- | --- |
+| `AdventureWorks2022` | **Source database** — read-only; used in Hassana's `INSERT ... SELECT` statements |
+| `RetailPromotionAnalytics` | **Project database** — all team scripts run here |
+| `RetailAnalytics` | **Required schema** — all tables, functions, procedures, and reports |
+
+> Run every script against **`RetailPromotionAnalytics`**, except data-load `SELECT` statements that reference `AdventureWorks2022`.
+
 ## Folder Structure
 
 ```text
@@ -100,6 +118,12 @@ deploy_all_execution.md
 | 3 | Product Category Performance Report | `reports/category_performance_report.sql` |
 | 4 | Regional Sales Analysis Report | `reports/regional_sales_report.sql` |
 | 5 | Discount Validation Report | `reports/discount_validation_report.sql` |
+
+## Build Order
+
+```text
+Schema → Tables → Data Load → Functions → Procedures → Reports → Validation → Deployment → Smoke Test
+```
 
 ## Deployment Instructions
 
